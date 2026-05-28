@@ -1,0 +1,13 @@
+services:
+  jupyter:
+    image: jupyter/pyspark-notebook:spark-3.5.0   
+    container_name: jupyter-lab
+    environment:
+      - JUPYTER_TOKEN=pass123   # пароль для входа в Jupyter
+      - SPARK_MASTER=spark://spark-master:7077
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./data:/home/jovyan/data        # данные
+      - ./notebooks:/home/jovyan/notebooks  # ноутбуки
+
